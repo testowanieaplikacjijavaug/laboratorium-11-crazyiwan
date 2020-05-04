@@ -1,33 +1,23 @@
 import static org.junit.Assert.*;
 
-import java.util.concurrent.TimeUnit;
-
 import io.github.bonigarcia.seljup.SeleniumExtension;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 @ExtendWith(SeleniumExtension.class)
 public class SeleniumExtensionTest {
 
     //Przykłady znajdowania elementów na stronie www bez elementów xpath
 
-    private static ChromeDriver driver;
+    private static FirefoxDriver driver;
 
-    @BeforeAll
-    public static void setUpDriver(){
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
-        driver = new ChromeDriver(chromeOptions);
-        // Implicity wait -> max czas na znalezienie elementu na stronie
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public SeleniumExtensionTest(FirefoxDriver driver) {
+        this.driver = driver;
     }
 
     @BeforeEach
