@@ -40,7 +40,7 @@ public class WaitinTest {
                 wait.until(ExpectedConditions.elementToBeSelected(By.linkText("abcsadfasdsa"))));
 
     }
-    
+
     @Test
     public void testTextToBePresentInElement(){
         WebDriverWait wait = new WebDriverWait(driver,10);
